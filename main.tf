@@ -15,7 +15,7 @@ locals {
 
 // Configure the Yandex.Cloud provider
 provider "yandex" {
-  service_account_key_file = "/home/protas/linux_game/authorized_key.json"
+  service_account_key_file = "${file("~/authorized_key.json")}"
   cloud_id                 = local.cloud_id
   folder_id                = local.folder_id
 }
