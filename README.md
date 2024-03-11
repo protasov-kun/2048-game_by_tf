@@ -6,10 +6,22 @@
 ```
 sudo snap install --classic terrafofm
 ```
+Создайте в домашнем каталоге пользователя `.terraformrc` файл с содержанием:
+```
+provider_installation {
+  network_mirror {
+    url = "https://terraform-mirror.yandexcloud.net/"
+    include = ["registry.terraform.io/*/*"]
+  }
+  direct {
+    exclude = ["registry.terraform.io/*/*"]
+  }
+}
+```
 
 Создайте копию репозитория на вашей системе `git clone https://github.com/protasov-kun/terraform_init_with_yc.git`
 ##### Если вы сохранили файл авторизованного ключа не в домашнем каталоге пользователя
-Тогда файле *main.tf*  в директиве:
+nогда файле *main.tf*  в директиве:
 ```
 provider "yandex" {
   service_account_key_file = "${file("~/authorized_key.json")}"
