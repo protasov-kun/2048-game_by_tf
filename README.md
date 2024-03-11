@@ -18,6 +18,7 @@ provider_installation {
   }
 }
 ```
+Создайты пару ключей SSH `ssh-keygen -t ed25519`
 
 Создайте копию репозитория на вашей системе `git clone https://github.com/protasov-kun/terraform_init_with_yc.git`
 ##### Если вы сохранили файл авторизованного ключа не в домашнем каталоге пользователя
@@ -32,6 +33,9 @@ provider "yandex" {
 отредактируйте строку `service_account_key_file =....`.
 
 Далее введите команды:
+
 `terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -platform=linux_amd64 yandex-cloud/yandex`
+
 `terraform init`
+
 `terraform apply`

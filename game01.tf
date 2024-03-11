@@ -4,7 +4,7 @@ resource "yandex_compute_disk" "boot-disk-1" {
   type     = "network-hdd"
   zone     = "ru-central1-a"
   size     = "10"
-  image_id = "fd8kp2cfs7pc786lfv2t"
+  image_id = "fd86oalksiu0i66rm342"
 }
 
 
