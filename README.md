@@ -39,3 +39,7 @@ provider "yandex" {
 `terraform init`
 
 `terraform apply`
+
+Теперь в адресной строке браузера укажите
+`http://<yc_vm_ip_address>:8080`
+с адресом, который получила ваша машина.

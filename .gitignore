@@ -36,3 +36,4 @@ terraform.rc
 # Ignire auth kyes.
 *_key.json
 *authorized*
+.lock.hcl
