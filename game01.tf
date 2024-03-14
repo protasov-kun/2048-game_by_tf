@@ -35,8 +35,25 @@ resource "yandex_compute_instance" "game01" {
     provisioner "remote-exec" {
     inline = [
       "sudo apt update",
-      "sudo apt-get install -y nginx",
-      "sudo systemctl start nginx"
+      "sudo apt-get install -y nginx"
+    ]
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "echo 'server {' | sudo tee /etc/nginx/sites-available/default",
+      "echo '    listen 80;' | sudo tee -a /etc/nginx/sites-available/default",
+      "echo '    location / {' | sudo tee -a /etc/nginx/sites-available/default",
+      "echo '        proxy_pass http://localhost:8080;' | sudo tee -a /etc/nginx/sites-available/default",
+      "echo '    }' | sudo tee -a /etc/nginx/sites-available/default",
+      "echo '}' | sudo tee -a /etc/nginx/sites-available/default",
+    ]
+  }
+
+
+    provisioner "remote-exec" {
+    inline = [
+      "sudo systemctl restart nginx"
     ]
   }
 
@@ -87,6 +104,7 @@ resource "yandex_compute_instance" "game01" {
       "npm run build" 
     ]
   }
+
 
     provisioner "remote-exec" {
     inline = [
