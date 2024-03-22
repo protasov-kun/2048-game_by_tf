@@ -29,7 +29,7 @@ provider_installation {
 
 Создайте копию репозитория в домашнем каталоге пользователя `/home/<user>/`, введя команду `git clone https://github.com/protasov-kun/2048-game_by_tf.git`
 
-В файле `/home/<user>/main.tf` отредактируйте директиву:
+В файле `/home/<user>/2048-game_by_tf/main.tf` отредактируйте директиву:
 ```
 locals {
   folder_id = "b1g27pnvvlliqavhq6d8"
@@ -39,7 +39,7 @@ locals {
 указав идентификаторы вашего каталога и платежного аккаунта.
 
 ##### Если вы сохранили файл авторизованного ключа сервисного аккаунта Yandex Cloud не в домашнем каталоге пользователя
-тогда в файле `/home/<user>/main.tf` в директиве:
+тогда в файле `/home/<user>/2048-game_by_tf/main.tf` в директиве:
 ```
 provider "yandex" {
   service_account_key_file = "${file("~/authorized_key.json")}"
